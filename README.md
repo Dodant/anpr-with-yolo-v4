@@ -23,3 +23,12 @@ Darknet (Yolov4) : https://github.com/AlexeyAB/darknet
 
 ### webcam
 `./darknet detector demo data/obj.data cfg/yolov4-ANPR.cfg backup/yolov4-ANPR.weights`
+
+
+## Example
+### Original Image
+![testfile](https://user-images.githubusercontent.com/20153952/83719439-09da3780-a672-11ea-9143-2ce1d9f921f1.jpg)
+### Prediction Image
+`./darknet detector test data/obj.data cfg/yolov4-ANPR.cfg backup/yolov4-ANPR.weights data/testfile.jpg`
+
+![predictions](https://user-images.githubusercontent.com/20153952/83719443-0e9eeb80-a672-11ea-8771-761a175f48e6.jpg)
