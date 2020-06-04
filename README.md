@@ -3,6 +3,10 @@ Paper Yolo v4: https://arxiv.org/abs/2004.10934
 
 About Darknet : http://pjreddie.com/darknet/
 
+## Download Model
+- `.weights` : https://drive.google.com/file/d/1b3rYgP48z_NGvSuNoMKDvxXzYmray_Qr/view?usp=sharing
+- `.mlmodel` : https://drive.google.com/file/d/1eREdAVoiOVlAiPOxv5c_Sc5EBPybOIUq/view?usp=sharing
+
 ## Classes
 - car
 - license_plate
@@ -15,6 +19,8 @@ Darknet (Yolov4) : https://github.com/AlexeyAB/darknet
 |Cloud Service|GPU|Traing Data|훈련 횟수|시간|
 |---|---|:---:|:---:|:---:|
 |GCP(Google Cloud Platform)|Nvidia Tesla P100|2600여장|4000회|5h|
+
+`./darknet detector train data/obj.data cfg/yolov4_ANPR.cfg yolov4.conv.137 -gpu 0`
 
 ## Usage (test)
 ### image
@@ -39,10 +45,9 @@ Darknet (Yolov4) : https://github.com/AlexeyAB/darknet
 
 
 ## References
-- 
 - Keras-yolov3
-  - weights to h5 - https://github.com/qqwweee/keras-yolo3/blob/master/convert.py
+  - weights to h5 : https://github.com/qqwweee/keras-yolo3/blob/master/convert.py
+  - Mish : https://qiita.com/TakaoNarikawa/items/e4521fd8c7a522e9d4fd
 - Core ML
-  - Mish - https://qiita.com/TakaoNarikawa/items/e4521fd8c7a522e9d4fd
   - https://gist.github.com/TakaoNarikawa
   - https://github.com/Ma-Dan/YOLOv3-CoreML
