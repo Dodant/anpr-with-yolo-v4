@@ -47,6 +47,7 @@ Darknet (Yolov4) : https://github.com/AlexeyAB/darknet
 ## References
 - Keras-yolov3
   - weights to h5 : https://github.com/qqwweee/keras-yolo3/blob/master/convert.py
+  - weights to mlmodel : https://gist.github.com/TakaoNarikawa/aef13571eec97d78603688eef05b5389
   - Mish : https://qiita.com/TakaoNarikawa/items/e4521fd8c7a522e9d4fd
 - Core ML
   - https://gist.github.com/TakaoNarikawa
