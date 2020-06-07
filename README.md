@@ -3,8 +3,6 @@
 
 **Yolo (You Only Look Once)** : One-Stage Object Detector
 
-Papers Yolo v4: https://arxiv.org/abs/2004.10934
-
 About Darknet : http://pjreddie.com/darknet/
 
 ## Download Model
@@ -60,8 +58,6 @@ LIBSO=0
 
 
 ## Example
-### Original Image
-![testfile](https://user-images.githubusercontent.com/20153952/83719439-09da3780-a672-11ea-9143-2ce1d9f921f1.jpg)
 ### Prediction Image
 `./darknet detector test data/obj.data cfg/yolov4-ANPR.cfg backup/yolov4-ANPR.weights data/testfile.jpg`
 ```
@@ -82,9 +78,9 @@ car: 30%
 
 ## References
 - Paper
-  - [You Only Look Once: Unified, Real-Time Object Detection](https://pjreddie.com/media/files/papers/yolo_1.pdf)
-  - [YOLO9000: Better, Faster, Stronger](https://pjreddie.com/media/files/papers/YOLO9000.pdf)
-  - [YOLOv3: An Incremental Improvement](https://pjreddie.com/media/files/papers/YOLOv3.pdf)
+  - [You Only Look Once : Unified, Real-Time Object Detection](https://pjreddie.com/media/files/papers/yolo_1.pdf)
+  - [YOLO9000 : Better, Faster, Stronger](https://pjreddie.com/media/files/papers/YOLO9000.pdf)
+  - [YOLOv3 : An Incremental Improvement](https://pjreddie.com/media/files/papers/YOLOv3.pdf)
   - [YOLOv4：Optimal Speed and Accuracy of Object Detection](https://arxiv.org/pdf/2004.10934.pdf)
 - Keras-yolov3
   - weights to h5 : https://github.com/qqwweee/keras-yolo3/blob/master/convert.py
