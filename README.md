@@ -3,7 +3,7 @@
 
 **Yolo (You Only Look Once)** : One-Stage Object Detector
 
-Paper Yolo v4: https://arxiv.org/abs/2004.10934
+Papers Yolo v4: https://arxiv.org/abs/2004.10934
 
 About Darknet : http://pjreddie.com/darknet/
 
@@ -81,6 +81,11 @@ car: 30%
 
 
 ## References
+- Paper
+  - [You Only Look Once: Unified, Real-Time Object Detection](https://pjreddie.com/media/files/papers/yolo_1.pdf)
+  - [YOLO9000: Better, Faster, Stronger](https://pjreddie.com/media/files/papers/YOLO9000.pdf)
+  - [YOLOv3: An Incremental Improvement](https://pjreddie.com/media/files/papers/YOLOv3.pdf)
+  - [YOLOv4：Optimal Speed and Accuracy of Object Detection](https://arxiv.org/pdf/2004.10934.pdf)
 - Keras-yolov3
   - weights to h5 : https://github.com/qqwweee/keras-yolo3/blob/master/convert.py
   - weights to mlmodel : https://gist.github.com/TakaoNarikawa/aef13571eec97d78603688eef05b5389
