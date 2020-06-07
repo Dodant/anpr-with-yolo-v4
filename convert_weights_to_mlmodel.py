@@ -10,8 +10,7 @@ from yolo3.utils import letterbox_image
 import numpy as np
 from keras import backend as K
 from keras.engine.base_layer import Layer
-from keras.layers import (Conv2D, Input, ZeroPadding2D, Add,
-                          UpSampling2D, MaxPooling2D, Concatenate, Lambda)
+from keras.layers import (Conv2D, Input, ZeroPadding2D, Add, UpSampling2D, MaxPooling2D, Concatenate, Lambda)
 from keras.layers.advanced_activations import LeakyReLU
 from keras.layers.normalization import BatchNormalization
 from keras.models import Model, load_model
@@ -50,7 +49,6 @@ class Mish(Layer):
         >>> X_input = Input(input_shape)
         >>> X = Mish()(X_input)
     '''
-
     def __init__(self, **kwargs):
         super(Mish, self).__init__(**kwargs)
         self.supports_masking = True
@@ -88,25 +86,21 @@ def unique_config_sections(config_file):
     output_stream.seek(0)
     return output_stream
 
-# %%
+
 def _main(args):
     config_path = os.path.expanduser(args.config_path)
     weights_path = os.path.expanduser(args.weights_path)
-    assert config_path.endswith('.cfg'), '{} is not a .cfg file'.format(
-        config_path)
-    assert weights_path.endswith(
-        '.weights'), '{} is not a .weights file'.format(weights_path)
+    assert config_path.endswith('.cfg'), '{} is not a .cfg file'.format(config_path)
+    assert weights_path.endswith('.weights'), '{} is not a .weights file'.format(weights_path)
 
     output_path = os.path.expanduser(args.output_path)
-    assert output_path.endswith(
-        '.mlmodel'), 'output path {} is not a .mlmodel file'.format(output_path)
+    assert output_path.endswith('.mlmodel'), 'output path {} is not a .mlmodel file'.format(output_path)
     output_root = os.path.splitext(output_path)[0]
 
     # Load weights and config.
     print('Loading weights.')
     weights_file = open(weights_path, 'rb')
-    major, minor, revision = np.ndarray(
-        shape=(3, ), dtype='int32', buffer=weights_file.read(12))
+    major, minor, revision = np.ndarray(shape=(3, ), dtype='int32', buffer=weights_file.read(12))
     if (major*10+minor)>=2 and major<1000 and minor<1000:
         seen = np.ndarray(shape=(1,), dtype='int64', buffer=weights_file.read(8))
     else:
@@ -123,8 +117,7 @@ def _main(args):
     prev_layer = input_layer
     all_layers = []
 
-    weight_decay = float(cfg_parser['net_0']['decay']
-                         ) if 'net_0' in cfg_parser.sections() else 5e-4
+    weight_decay = float(cfg_parser['net_0']['decay']) if 'net_0' in cfg_parser.sections() else 5e-4
     count = 0
     out_index = []
     for section in cfg_parser.sections():
@@ -148,8 +141,7 @@ def _main(args):
             darknet_w_shape = (filters, weights_shape[2], size, size)
             weights_size = np.product(weights_shape)
 
-            print('conv2d', 'bn'
-                  if batch_normalize else '  ', activation, weights_shape)
+            print('conv2d', 'bn' if batch_normalize else '  ', activation, weights_shape)
 
             conv_bias = np.ndarray(
                 shape=(filters, ),
@@ -182,9 +174,7 @@ def _main(args):
             # We would like to set these to Tensorflow order:
             # (height, width, in_dim, out_dim)
             conv_weights = np.transpose(conv_weights, [2, 3, 1, 0])
-            conv_weights = [conv_weights] if batch_normalize else [
-                conv_weights, conv_bias
-            ]
+            conv_weights = [conv_weights] if batch_normalize else [conv_weights, conv_bias]
 
             # Handle activation.
             act_fn = None
@@ -193,12 +183,10 @@ def _main(args):
             elif activation == 'mish':
                 pass
             elif activation != 'linear':
-                raise ValueError(
-                    'Unknown activation function `{}` in section {}'.format(
-                        activation, section))
+                raise ValueError('Unknown activation function `{}` in section {}'.format(activation, section))
 
             # Create Conv2D layer
-            if stride>1:
+            if stride > 1:
                 # Darknet uses left and top padding instead of 'same' mode
                 prev_layer = ZeroPadding2D(((1,0),(1,0)))(prev_layer)
             conv_layer = (Conv2D(
@@ -211,8 +199,7 @@ def _main(args):
                 padding=padding))(prev_layer)
 
             if batch_normalize:
-                conv_layer = (BatchNormalization(
-                    weights=bn_weight_list))(conv_layer)
+                conv_layer = (BatchNormalization(weights=bn_weight_list))(conv_layer)
             prev_layer = conv_layer
 
             if activation == 'linear':
@@ -271,8 +258,7 @@ def _main(args):
             pass
 
         else:
-            raise ValueError(
-                'Unsupported section header type: {}'.format(section))
+            raise ValueError('Unsupported section header type: {}'.format(section))
 
     # Create and save model.
     if len(out_index)==0: out_index.append(len(all_layers)-1)
