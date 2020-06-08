@@ -35,7 +35,7 @@ CUDNN_HALF=0
 OPENCV=0	# OpenCV 사용 시 1로 변경
 AVX=0
 OPENMP=0
-LIBSO=0
+LIBSO=1   # libdarknet.so 생성
 
 ...
 ...
