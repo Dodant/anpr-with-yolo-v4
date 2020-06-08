@@ -75,6 +75,11 @@ car: 30%
 ![predictions](https://user-images.githubusercontent.com/20153952/83719443-0e9eeb80-a672-11ea-8771-761a175f48e6.jpg)
 
 
+### Prediction Video
+`./darknet detector demo data/obj.data cfg/yolov4-ANPR.cfg backup/yolov4-ANPR.weights data/testvideo.jpg` or `python darknet_video.py`
+
+Video Link : 
+
 
 ## References
 - Paper
