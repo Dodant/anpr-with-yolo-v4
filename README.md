@@ -79,8 +79,8 @@ car: 30%
 - `./darknet detector demo data/obj.data cfg/yolov4-ANPR.cfg backup/yolov4-ANPR.weights data/testvideo.jpg`
 - `python darknet_video.py`
 
-Demo Video Link : https://drive.google.com/file/d/1DGmF2bwtDMe1y-wNuv_YT827Vr6Y8Q2m/view?usp=sharing
-
+Demo Video Link (1) : https://drive.google.com/file/d/1DGmF2bwtDMe1y-wNuv_YT827Vr6Y8Q2m/view?usp=sharing
+Demo Video Link (2) : https://drive.google.com/file/d/1nJjIQFcrYRYSJ0n9FK0-x_Fk6HrULsZY/view?usp=sharing
 
 ## References
 - Paper
