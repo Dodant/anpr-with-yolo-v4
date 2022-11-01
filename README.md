@@ -1,5 +1,5 @@
-# ANPR-with-Yolo-v4
-**ANPR (Automatic Number-Plate Recognition)** : 차량번호판 자동 인식 프로그램
+# ALPR-with-Yolo-v4
+**ALPR (Automatic License-Plate Recognition)** : 차량번호판 자동 인식 프로그램
 
 **Yolo (You Only Look Once)** : One-Stage Object Detector
 
