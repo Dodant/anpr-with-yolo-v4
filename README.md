@@ -1,7 +1,5 @@
 # ALPR-with-Yolo-v4
-**ALPR (Automatic License-Plate Recognition)** : 차량번호판 자동 인식 프로그램
-
-**Yolo (You Only Look Once)** : One-Stage Object Detector
+ALPR with YOLOv4 is an advanced Automatic License Plate Recognition (ALPR) system that leverages the powerful YOLOv4 (You Only Look Once) one-stage object detection framework. It can efficiently and accurately detect and recognize vehicle license plates in real-time.
 
 About Darknet : http://pjreddie.com/darknet/
 
@@ -18,38 +16,38 @@ Labeling Tool : https://github.com/AlexeyAB/Yolo_mark
 
 Darknet (Yolov4) : https://github.com/AlexeyAB/darknet
 
-|Cloud Service|GPU|Traing Data|훈련 횟수|시간|
+|Cloud Service|GPU|Traing Data|Training Iterations|Time|
 |---|---|:---:|:---:|:---:|
-|GCP(Google Cloud Platform)|Nvidia Tesla P100|2600여장|4000회|5h|
+|GCP(Google Cloud Platform)|Nvidia Tesla P100|Over 2600 images|4000 iterations|5h|
 
 `./darknet detector train data/obj.data cfg/yolov4_ANPR.cfg yolov4.conv.137 -gpu 0`
 
 ## Usage (test)
 1. `git clone https://github.com/AlexeyAB/darknet`
 2. `cd darknet`
-3. 사용하는 환경에 맞게 Makefile 설정  `vi Makefile`
+3. Configure Makefile according to your environment:  `vi Makefile`
 ```
-GPU=0		# GPU 사용 시 1로 변경
-CUDNN=0		# cuDNN 사용 시 1로 변경 (NVIDIA)
+GPU=0        # Change to 1 if using GPU
+CUDNN=0      # Change to 1 if using cuDNN (NVIDIA)
 CUDNN_HALF=0
-OPENCV=0	# OpenCV 사용 시 1로 변경
+OPENCV=0     # Change to 1 if using OpenCV
 AVX=0
 OPENMP=0
-LIBSO=1         # libdarknet.so 생성
+LIBSO=1      # Generate libdarknet.so
 
 ...
 ...
 ```
 4. `make`
-- 기본 패키지 : make, gcc, pkg-config (없다면 `sudo apt-get install …`로 설치)
+- Required packages: make, gcc, pkg-config (if not installed, use `sudo apt-get install …` to install)
   
-5. `data/*`, `cfg/yolov4-ANPR.cfg`, ` backup/yolov4-ANPR.weights` 다운로드 
+5. Download `data/*`, `cfg/yolov4-ANPR.cfg`, and `backup/yolov4-ANPR.weights` 
 
 ### image
 
 `./darknet detector test data/obj.data cfg/yolov4-ANPR.cfg backup/yolov4-ANPR.weights data/(이미지파일.jpg)`
 
-> 반드시 `.jpg` 이미지 사용 
+> Make sure to use `.jpg` images 
 ### video
 `./darknet detector demo data/obj.data cfg/yolov4-ANPR.cfg backup/yolov4-ANPR.weights data/(동영상파일.mp4)`
 
@@ -84,7 +82,7 @@ Demo Video Link (1) : https://drive.google.com/file/d/1DGmF2bwtDMe1y-wNuv_YT827V
 Demo Video Link (2) : https://drive.google.com/file/d/1nJjIQFcrYRYSJ0n9FK0-x_Fk6HrULsZY/view?usp=sharing
 
 ## References
-- Paper
+- Papers
   - [You Only Look Once : Unified, Real-Time Object Detection](https://pjreddie.com/media/files/papers/yolo_1.pdf)
   - [YOLO9000 : Better, Faster, Stronger](https://pjreddie.com/media/files/papers/YOLO9000.pdf)
   - [YOLOv3 : An Incremental Improvement](https://pjreddie.com/media/files/papers/YOLOv3.pdf)
